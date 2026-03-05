@@ -78,6 +78,72 @@ async function startServer() {
   ];
   let fallbackSiteContent: Record<string, unknown> = {};
 
+  const uploadUrl = (fileName: string) => `/uploads/${encodeURIComponent(fileName)}`;
+  const imageExtRegex = /\.(jpe?g|png|webp|gif|bmp|avif)$/i;
+  const videoExtRegex = /\.(mp4|webm|ogv|ogg)$/i;
+
+  // If users already placed assets in ./uploads, surface them in fallback content automatically.
+  try {
+    const uploadEntries = await fs.readdir(uploadsDir, { withFileTypes: true });
+    const filesWithTime = await Promise.all(
+      uploadEntries
+        .filter(entry => entry.isFile())
+        .map(async (entry) => {
+          const fullPath = path.join(uploadsDir, entry.name);
+          const stat = await fs.stat(fullPath);
+          return { name: entry.name, modifiedAt: stat.mtimeMs };
+        }),
+    );
+    filesWithTime.sort((a, b) => b.modifiedAt - a.modifiedAt);
+
+    const orderedFiles = filesWithTime.map(file => file.name);
+    const orderedImageFiles = orderedFiles.filter(name => imageExtRegex.test(name));
+    const orderedVideoFiles = orderedFiles.filter(name => videoExtRegex.test(name));
+
+    if (orderedImageFiles.length > 0) {
+      fallbackCarousel.splice(
+        0,
+        fallbackCarousel.length,
+        ...orderedImageFiles.slice(0, 10).map((fileName, idx) => ({
+          _id: `c${idx + 1}`,
+          imageUrl: uploadUrl(fileName),
+          title: `Bootcamp Highlight ${idx + 1}`,
+          description: "Captured moments from ATLASIA sessions.",
+        })),
+      );
+
+      fallbackSiteContent = {
+        ...fallbackSiteContent,
+        aboutPage: {
+          sectionImages: Array.from({ length: 5 }, (_, idx) => (
+            orderedImageFiles[idx] ? uploadUrl(orderedImageFiles[idx]) : ""
+          )),
+        },
+        studentsPage: {
+          experienceImageUrl: uploadUrl(orderedImageFiles[0]),
+        },
+      };
+    }
+
+    const orderedMediaFiles = [...orderedVideoFiles, ...orderedImageFiles];
+    if (orderedMediaFiles.length > 0) {
+      fallbackBootcampMedia.splice(
+        0,
+        fallbackBootcampMedia.length,
+        ...orderedMediaFiles.slice(0, 10).map((fileName, idx) => ({
+          _id: `bm${idx + 1}`,
+          mediaUrl: uploadUrl(fileName),
+          mediaType: (videoExtRegex.test(fileName) ? "video" : "image") as "video" | "image",
+          title: `Bootcamp Media ${idx + 1}`,
+          description: "Auto-loaded from uploads folder.",
+          order: idx + 1,
+        })),
+      );
+    }
+  } catch (err) {
+    console.warn("Unable to auto-load uploads folder fallbacks:", (err as Error).message);
+  }
+
   app.use(cors());
   app.use(express.json({ limit: "40mb" }));
   app.use("/uploads", express.static(uploadsDir));
