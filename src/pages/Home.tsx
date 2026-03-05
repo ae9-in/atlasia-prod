@@ -7,14 +7,54 @@ import { ChevronRight, ArrowRight, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SiteContent, defaultSiteContent, normalizeSiteContent } from '../siteContent';
 
+const fallbackHero: HeroData = {
+  title: 'ATLASIA',
+  subtitle: 'THE BOOTCAMP COMPANY',
+  tagline: '15-Day Industry Bootcamp: from classroom to corporate execution.',
+  primaryButtonText: 'Explore Bootcamp',
+  primaryButtonLink: '/bootcamp',
+  secondaryButtonText: 'Join as Student',
+  secondaryButtonLink: '/students',
+};
+
+const fallbackHighlights: HighlightData[] = [
+  { _id: 'h1', title: 'Industry Mentors', description: 'Learn directly from professionals working in top-tier companies.', order: 1 },
+  { _id: 'h2', title: 'Real Projects', description: 'Work on actual business problems and deliver tangible solutions.', order: 2 },
+  { _id: 'h3', title: 'Networking', description: 'Build lasting connections with peers and industry leaders.', order: 3 },
+];
+
+const fallbackCarousel: CarouselData[] = [
+  { _id: 'c1', imageUrl: 'https://picsum.photos/seed/atlasia1/1200/600', title: 'Immersive Learning', description: 'Experience the corporate world first-hand.' },
+  { _id: 'c2', imageUrl: 'https://picsum.photos/seed/atlasia2/1200/600', title: 'Expert Guidance', description: 'Mentorship from industry veterans.' },
+  { _id: 'c3', imageUrl: 'https://picsum.photos/seed/atlasia3/1200/600', title: 'Career Growth', description: 'Accelerate your professional journey.' },
+];
+
+const fallbackPhases: PhaseData[] = [
+  { _id: 'ph1', title: 'Phase 1: Foundations', duration: 'Day 1-3', description: 'Introduction to industry standards and core concepts.', order: 1 },
+  { _id: 'ph2', title: 'Phase 2: Deep Dive', duration: 'Day 4-8', description: 'Intensive workshops and real-world case studies.', order: 2 },
+  { _id: 'ph3', title: 'Phase 3: Execution', duration: 'Day 9-15', description: 'Final project delivery and corporate presentation.', order: 3 },
+];
+
+const fallbackRoles: RoleData[] = [
+  { _id: 'r1', roleName: 'Business Analyst', description: 'Analyze business needs and document requirements.', responsibilities: ['Requirement Gathering', 'Process Mapping', 'Stakeholder Management'], registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdSpFlEDLjvojJoACj1gMSSBU6Zspk5yYafi79CGh-IBQ4uVg/viewform', order: 1 },
+  { _id: 'r2', roleName: 'Product Manager', description: 'Drive product vision and strategy.', responsibilities: ['Roadmap Planning', 'User Research', 'Agile Leadership'], registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdSpFlEDLjvojJoACj1gMSSBU6Zspk5yYafi79CGh-IBQ4uVg/viewform', order: 2 },
+  { _id: 'r3', roleName: 'Operations Lead', description: 'Optimize internal processes and efficiency.', responsibilities: ['Workflow Optimization', 'Resource Allocation', 'Performance Tracking'], registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdSpFlEDLjvojJoACj1gMSSBU6Zspk5yYafi79CGh-IBQ4uVg/viewform', order: 3 },
+];
+
+const fallbackCta: CTAData = {
+  heading: 'Ready to Transform Your Career?',
+  buttonText: 'Register Now',
+  buttonLink: '/students',
+};
+
 export default function Home() {
   const [loading, setLoading] = useState(true);
-  const [hero, setHero] = useState<HeroData | null>(null);
-  const [highlights, setHighlights] = useState<HighlightData[]>([]);
-  const [carousel, setCarousel] = useState<CarouselData[]>([]);
-  const [phases, setPhases] = useState<PhaseData[]>([]);
-  const [roles, setRoles] = useState<RoleData[]>([]);
-  const [cta, setCta] = useState<CTAData | null>(null);
+  const [hero, setHero] = useState<HeroData>(fallbackHero);
+  const [highlights, setHighlights] = useState<HighlightData[]>(fallbackHighlights);
+  const [carousel, setCarousel] = useState<CarouselData[]>(fallbackCarousel);
+  const [phases, setPhases] = useState<PhaseData[]>(fallbackPhases);
+  const [roles, setRoles] = useState<RoleData[]>(fallbackRoles);
+  const [cta, setCta] = useState<CTAData>(fallbackCta);
   const [siteContent, setSiteContent] = useState<SiteContent>(defaultSiteContent);
 
   useEffect(() => {
@@ -38,6 +78,12 @@ export default function Home() {
         setSiteContent(normalizeSiteContent(siteContentRes.data));
       } catch (err) {
         console.error(err);
+        setHero(fallbackHero);
+        setHighlights(fallbackHighlights);
+        setCarousel(fallbackCarousel);
+        setPhases(fallbackPhases);
+        setRoles(fallbackRoles);
+        setCta(fallbackCta);
       } finally {
         setLoading(false);
       }
@@ -193,10 +239,10 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-6xl font-display font-bold text-mocha mb-8">
-              {cta?.heading}
+              {cta.heading}
             </h2>
-            <Link to={cta?.buttonLink || '/'} className="btn-primary text-xl px-12 py-4">
-              {cta?.buttonText}
+            <Link to={cta.buttonLink || '/'} className="btn-primary text-xl px-12 py-4">
+              {cta.buttonText}
             </Link>
           </motion.div>
         </div>

@@ -6,13 +6,37 @@ import { Link } from 'react-router-dom';
 import { CheckCircle2, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 import { SiteContent, defaultSiteContent, normalizeSiteContent } from '../siteContent';
 
+const fallbackPhases: PhaseData[] = [
+  { _id: 'ph1', title: 'Phase 1: Foundations', duration: 'Day 1-3', description: 'Introduction to industry standards and core concepts.', order: 1 },
+  { _id: 'ph2', title: 'Phase 2: Deep Dive', duration: 'Day 4-8', description: 'Intensive workshops and real-world case studies.', order: 2 },
+  { _id: 'ph3', title: 'Phase 3: Execution', duration: 'Day 9-15', description: 'Final project delivery and corporate presentation.', order: 3 },
+];
+
+const fallbackRoles: RoleData[] = [
+  { _id: 'r1', roleName: 'Business Analyst', description: 'Analyze business needs and document requirements.', responsibilities: ['Requirement Gathering', 'Process Mapping', 'Stakeholder Management'], registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdSpFlEDLjvojJoACj1gMSSBU6Zspk5yYafi79CGh-IBQ4uVg/viewform', order: 1 },
+  { _id: 'r2', roleName: 'Product Manager', description: 'Drive product vision and strategy.', responsibilities: ['Roadmap Planning', 'User Research', 'Agile Leadership'], registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdSpFlEDLjvojJoACj1gMSSBU6Zspk5yYafi79CGh-IBQ4uVg/viewform', order: 2 },
+  { _id: 'r3', roleName: 'Operations Lead', description: 'Optimize internal processes and efficiency.', responsibilities: ['Workflow Optimization', 'Resource Allocation', 'Performance Tracking'], registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdSpFlEDLjvojJoACj1gMSSBU6Zspk5yYafi79CGh-IBQ4uVg/viewform', order: 3 },
+];
+
+const fallbackMediaSlides: BootcampMediaData[] = [
+  { _id: 'bm1', mediaUrl: 'https://picsum.photos/seed/bootcamp-media-1/1200/700', mediaType: 'image', title: 'Live Industry Workshop', description: 'Participants collaborating in a real-time corporate simulation.', order: 1 },
+  { _id: 'bm2', mediaUrl: 'https://picsum.photos/seed/bootcamp-media-2/1200/700', mediaType: 'image', title: 'Mentor Session', description: 'One-on-one guidance from industry professionals.', order: 2 },
+  { _id: 'bm3', mediaUrl: 'https://picsum.photos/seed/bootcamp-media-3/1200/700', mediaType: 'image', title: 'Final Presentation', description: 'Delivering strategic solutions to a review panel.', order: 3 },
+];
+
+const fallbackCta: CTAData = {
+  heading: 'Ready to Transform Your Career?',
+  buttonText: 'Register Now',
+  buttonLink: '/students',
+};
+
 export default function Bootcamp() {
   const [loading, setLoading] = useState(true);
-  const [phases, setPhases] = useState<PhaseData[]>([]);
-  const [roles, setRoles] = useState<RoleData[]>([]);
-  const [mediaSlides, setMediaSlides] = useState<BootcampMediaData[]>([]);
+  const [phases, setPhases] = useState<PhaseData[]>(fallbackPhases);
+  const [roles, setRoles] = useState<RoleData[]>(fallbackRoles);
+  const [mediaSlides, setMediaSlides] = useState<BootcampMediaData[]>(fallbackMediaSlides);
   const [activeSlide, setActiveSlide] = useState(0);
-  const [cta, setCta] = useState<CTAData | null>(null);
+  const [cta, setCta] = useState<CTAData>(fallbackCta);
   const [siteContent, setSiteContent] = useState<SiteContent>(defaultSiteContent);
 
   useEffect(() => {
@@ -32,6 +56,10 @@ export default function Bootcamp() {
         setSiteContent(normalizeSiteContent(siteContentRes.data));
       } catch (err) {
         console.error(err);
+        setPhases(fallbackPhases);
+        setRoles(fallbackRoles);
+        setCta(fallbackCta);
+        setMediaSlides(fallbackMediaSlides);
       } finally {
         setLoading(false);
       }
@@ -268,9 +296,9 @@ export default function Bootcamp() {
       {/* Final CTA */}
       <section className="py-24 bg-gold">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-6xl font-display font-bold text-mocha mb-8">{cta?.heading}</h2>
-          <Link to={cta?.buttonLink || '/'} className="btn-primary text-xl px-12 py-4">
-            {cta?.buttonText}
+          <h2 className="text-4xl md:text-6xl font-display font-bold text-mocha mb-8">{cta.heading}</h2>
+          <Link to={cta.buttonLink || '/'} className="btn-primary text-xl px-12 py-4">
+            {cta.buttonText}
           </Link>
         </div>
       </section>
