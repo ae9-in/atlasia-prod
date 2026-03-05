@@ -44,6 +44,12 @@ const errorMessage = (err: unknown) => axios.isAxiosError(err)
   ? (err.response?.data?.error || err.message)
   : (err as Error).message;
 
+const toArray = <T,>(value: unknown): T[] => (Array.isArray(value) ? value as T[] : []);
+const normalizeRoles = (value: unknown): RoleData[] => toArray<RoleData>(value).map((role) => ({
+  ...role,
+  responsibilities: Array.isArray(role.responsibilities) ? role.responsibilities : [],
+}));
+
 export default function Admin() {
   const [adminKeyInput, setAdminKeyInput] = useState('');
   const [adminKey, setAdminKey] = useState(localStorage.getItem('atlasia_admin_key') || '');
@@ -81,11 +87,11 @@ export default function Admin() {
       setHero(heroRes.data || initialHero);
       setAbout(aboutRes.data || initialAbout);
       setCta(ctaRes.data || initialCta);
-      setHighlights(highlightsRes.data || []);
-      setPhases(phasesRes.data || []);
-      setRoles(rolesRes.data || []);
-      setCarousel(carouselRes.data || []);
-      setBootcampMedia(mediaRes.data || []);
+      setHighlights(toArray<HighlightData>(highlightsRes.data));
+      setPhases(toArray<PhaseData>(phasesRes.data));
+      setRoles(normalizeRoles(rolesRes.data));
+      setCarousel(toArray<CarouselData>(carouselRes.data));
+      setBootcampMedia(toArray<BootcampMediaData>(mediaRes.data));
       setSiteContentJson(JSON.stringify(normalizeSiteContent(siteContentRes.data), null, 2));
     } catch (err) {
       setStatus(`Load failed: ${(err as Error).message}`);
