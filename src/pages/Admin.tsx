@@ -117,7 +117,7 @@ export default function Admin() {
         localStorage.removeItem('atlasia_admin_key');
         setAdminKey('');
         setAuthorized(false);
-        setStatus('Admin verification failed');
+        setStatus(`Admin verification failed: ${errorMessage(err)}`);
         setLoading(false);
       }
     };
@@ -128,13 +128,14 @@ export default function Admin() {
 
   const login = async () => {
     try {
-      await api.get('/admin/verify', { headers: { 'x-admin-key': adminKeyInput } });
-      localStorage.setItem('atlasia_admin_key', adminKeyInput);
-      setAdminKey(adminKeyInput);
+      const normalizedKey = adminKeyInput.trim();
+      await api.get('/admin/verify', { headers: { 'x-admin-key': normalizedKey } });
+      localStorage.setItem('atlasia_admin_key', normalizedKey);
+      setAdminKey(normalizedKey);
       setAdminKeyInput('');
       setStatus('');
     } catch (err) {
-      setStatus('Invalid admin key');
+      setStatus(errorMessage(err) || 'Invalid admin key');
     }
   };
 
