@@ -402,7 +402,7 @@ export default function Admin() {
       <section className="premium-card space-y-4">
         <h2 className="text-2xl font-bold">About Section Images</h2>
         <p className="text-sm text-taupe">Upload one image per About section. These replace old default placeholders.</p>
-        {readSiteContentObject().aboutPage.sectionTitles.map((title, idx) => {
+        {toArray<string>(readSiteContentObject().aboutPage.sectionTitles).map((title, idx) => {
           const imageUrl = readSiteContentObject().aboutPage.sectionImages[idx] || '';
           return (
             <div key={`${title}-${idx}`} className="border border-black/10 rounded-2xl p-4 space-y-3">
@@ -571,13 +571,14 @@ function ListEditor<T extends { _id?: string }>({
   onSave: (item: T) => void;
   onDelete: (item: T) => void;
 }) {
+  const safeItems = Array.isArray(items) ? items : [];
   return (
     <section className="premium-card space-y-4">
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold">{title}</h2>
         <button className="btn-secondary" onClick={onAdd}>{addLabel}</button>
       </div>
-      {items.map((item, idx) => (
+      {safeItems.map((item, idx) => (
         <div key={item._id || `${title}-${idx}`} className="border border-black/10 rounded-2xl p-4 space-y-3">
           {render(item, (next) => {
             const copy = [...items];
@@ -590,7 +591,7 @@ function ListEditor<T extends { _id?: string }>({
           </div>
         </div>
       ))}
-      {items.length === 0 && <p className="text-taupe">No items yet.</p>}
+      {safeItems.length === 0 && <p className="text-taupe">No items yet.</p>}
     </section>
   );
 }
