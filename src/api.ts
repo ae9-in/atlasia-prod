@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const configuredApiBaseUrl = (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || '';
-const configuredApiFallbackUrl = (import.meta.env.VITE_API_FALLBACK_URL as string | undefined)?.trim() || 'https://atlansia.vercel.app/api';
+const configuredApiFallbackUrl = (import.meta.env.VITE_API_FALLBACK_URL as string | undefined)?.trim() || '';
 
 function normalizeApiBaseUrl(raw: string): string {
   if (!raw) return '/api';

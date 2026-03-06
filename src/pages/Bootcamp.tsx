@@ -7,31 +7,22 @@ import { CheckCircle2, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-re
 import { SiteContent, defaultSiteContent, normalizeSiteContent } from '../siteContent';
 
 const fallbackPhases: PhaseData[] = [
-  { _id: 'ph1', title: 'Phase 1: Foundations', duration: 'Day 1-2', description: 'Introduction to industry standards and core concepts.', order: 1 },
-  { _id: 'ph2', title: 'Phase 2: Deep Dive', duration: 'Day 2-3', description: 'Intensive workshops and real-world case studies.', order: 2 },
-  { _id: 'ph3', title: 'Phase 3: Execution', duration: 'Day 3-12', description: 'Final project delivery and corporate presentation.', order: 3 },
+  { _id: 'ph1', title: 'Phase 1: Foundations', duration: 'Day 1-3', description: 'Introduction to industry standards and core concepts.', order: 1 },
+  { _id: 'ph2', title: 'Phase 2: Deep Dive', duration: 'Day 4-8', description: 'Intensive workshops and real-world case studies.', order: 2 },
+  { _id: 'ph3', title: 'Phase 3: Execution', duration: 'Day 9-12', description: 'Final project delivery and corporate presentation.', order: 3 },
 ];
 
 const fallbackRoles: RoleData[] = [
-  { _id: 'r1', roleName: 'Business Analyst', description: 'Analyze business needs and document requirements.', responsibilities: ['Requirement Gathering', 'Process Mapping', 'Stakeholder Management'], registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdSpFlEDLjvojJoACj1gMSSBU6Zspk5yYafi79CGh-IBQ4uVg/viewform', order: 1 },
-  { _id: 'r2', roleName: 'HR', description: 'Drive product vision and strategy.', responsibilities: ['Roadmap Planning', 'User Research', 'Agile Leadership'], registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdSpFlEDLjvojJoACj1gMSSBU6Zspk5yYafi79CGh-IBQ4uVg/viewform', order: 2 },
-  { _id: 'r3', roleName: 'Operations', description: 'Optimize internal processes and efficiency.', responsibilities: ['Workflow Optimization', 'Resource Allocation', 'Performance Tracking'], registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdSpFlEDLjvojJoACj1gMSSBU6Zspk5yYafi79CGh-IBQ4uVg/viewform', order: 3 },
-  {
-    _id: 'r4', roleName: 'BDE', description: 'Optimize internal processes and efficiency.', responsibilities: ['Lead Generation & Market Research',
-      'Client Relationship Management',
-      'Revenue Growth Strategy'], registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdSpFlEDLjvojJoACj1gMSSBU6Zspk5yYafi79CGh-IBQ4uVg/viewform', order: 4
-  },
-  {
-    _id: 'r5', roleName: 'Web Development', description: 'Develop Real Time Scalable Web Applications', responsibilities: ['Lead Generation & Market Research',
-      'Client Relationship Management',
-      'Revenue Growth Strategy'], registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdSpFlEDLjvojJoACj1gMSSBU6Zspk5yYafi79CGh-IBQ4uVg/viewform', order: 4
-  },
+  { _id: 'r1', roleName: 'Business Analyst', description: 'Analyze business needs and document requirements.', responsibilities: ['Requirement Gathering', 'Process Mapping', 'Stakeholder Management'], registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdddFRbl4A_gALPwJRA82ZklQpV1cvrg6FyCYak6Vm27QQoIw/viewform', order: 1 },
+  { _id: 'r2', roleName: 'Product Manager', description: 'Drive product vision and strategy.', responsibilities: ['Roadmap Planning', 'User Research', 'Agile Leadership'], registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdddFRbl4A_gALPwJRA82ZklQpV1cvrg6FyCYak6Vm27QQoIw/viewform', order: 2 },
+  { _id: 'r3', roleName: 'Operations Lead', description: 'Optimize internal processes and efficiency.', responsibilities: ['Workflow Optimization', 'Resource Allocation', 'Performance Tracking'], registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdddFRbl4A_gALPwJRA82ZklQpV1cvrg6FyCYak6Vm27QQoIw/viewform', order: 3 },
 ];
 
 const fallbackMediaSlides: BootcampMediaData[] = [
-  { _id: 'bm1', mediaUrl: 'https://picsum.photos/seed/bootcamp-media-1/1200/700', mediaType: 'image', title: 'Live Industry Workshop', description: 'Participants collaborating in a real-time corporate simulation.', order: 1 },
-  { _id: 'bm2', mediaUrl: 'https://picsum.photos/seed/bootcamp-media-2/1200/700', mediaType: 'image', title: 'Live Industry Workshop', description: 'execution ', order: 2 },
-  { _id: 'bm3', mediaUrl: 'https://picsum.photos/seed/bootcamp-media-3/1200/700', mediaType: 'image', title: 'Live Industry Workshop', description: 'Delivering strategic solutions and  real time experience ', order: 3 },
+  { _id: 'bm1', mediaUrl: '/uploads/1772621960511-ca0f63a4-9b35-460a-92d8-8b357c30963f-WhatsAppImage2026-03-04at42501PM1.jpg', mediaType: 'image', title: 'Bootcamp Media 1', description: 'Auto-loaded from uploads folder.', order: 1 },
+  { _id: 'bm2', mediaUrl: '/uploads/1772621926796-9a0523a7-823c-4b5b-9f7a-50715da0b0fd-WhatsAppImage2026-03-04at42501PM.jpg', mediaType: 'image', title: 'Bootcamp Media 2', description: 'Auto-loaded from uploads folder.', order: 2 },
+  { _id: 'bm3', mediaUrl: '/uploads/1772621907273-f43b9b5a-9059-457b-b2c2-b24f2ab20b0a-WhatsAppImage2026-03-04at42502PM.jpg', mediaType: 'image', title: 'Bootcamp Media 3', description: 'Auto-loaded from uploads folder.', order: 3 },
+  { _id: 'bm4', mediaUrl: '/uploads/1772621899573-7dc370ec-66e7-4e5b-8110-c7e2e25690f3-WhatsAppImage2026-03-04at42501PM2.jpg', mediaType: 'image', title: 'Bootcamp Media 4', description: 'Auto-loaded from uploads folder.', order: 4 },
 ];
 
 const fallbackCta: CTAData = {
