@@ -8,7 +8,7 @@ import { SiteContent, defaultSiteContent, normalizeSiteContent } from '../siteCo
 const aboutDefaults: AboutData = {
   whoWeAre: "Atlasia is a premier industry immersion bootcamp designed to bridge the gap between academic learning and corporate reality.",
   whyAtlasia: "We provide real-world exposure, mentorship from industry leaders, and hands-on project experience.",
-  approach: "Our 15-day intensive program focuses on execution, strategy, and professional growth.",
+  approach: "Our 12-day intensive program focuses on execution, strategy, and professional growth.",
   vision: "To be a leader in professional immersion training for students",
   mission: "Empowering the next generation of professionals through direct industry engagement.",
 };
