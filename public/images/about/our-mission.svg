@@ -1,0 +1,30 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f6efdf"/>
+      <stop offset="100%" stop-color="#eadbbe"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff8ea"/>
+      <stop offset="100%" stop-color="#f0e2c8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg2)"/>
+  <rect x="120" y="110" width="1360" height="680" rx="46" fill="url(#panel)" stroke="#d3ba8f" stroke-width="4"/>
+  <circle cx="280" cy="260" r="88" fill="#ecd8b4"/>
+  <circle cx="460" cy="260" r="88" fill="#e4cda4"/>
+  <circle cx="370" cy="390" r="100" fill="#dcc093"/>
+  <rect x="610" y="190" width="760" height="360" rx="28" fill="#fff5e5" stroke="#d7bf96" stroke-width="3"/>
+  <rect x="680" y="250" width="380" height="16" rx="8" fill="#b8945b"/>
+  <rect x="680" y="290" width="600" height="12" rx="6" fill="#dbc7a7"/>
+  <rect x="680" y="316" width="560" height="12" rx="6" fill="#dbc7a7"/>
+  <rect x="680" y="342" width="500" height="12" rx="6" fill="#dbc7a7"/>
+  <rect x="680" y="390" width="250" height="130" rx="20" fill="#efddbf"/>
+  <rect x="960" y="390" width="250" height="130" rx="20" fill="#efddbf"/>
+  <path d="M220 680 C 360 610, 520 610, 660 680" fill="none" stroke="#b79259" stroke-width="12" stroke-linecap="round"/>
+  <path d="M940 680 C 1080 610, 1240 610, 1380 680" fill="none" stroke="#b79259" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="800" cy="675" r="72" fill="#e5ca9a" stroke="#b89256" stroke-width="8"/>
+  <path d="M770 675 l20 20 l40 -44" fill="none" stroke="#6f4a34" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="800" y="770" text-anchor="middle" font-family="Georgia, serif" font-size="56" fill="#5a3a2f" font-weight="700">Our Mission</text>
+  <text x="800" y="814" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#8b6e56">Empowering students with direct industry engagement</text>
+</svg>
