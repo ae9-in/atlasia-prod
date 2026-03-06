@@ -132,7 +132,7 @@ export const defaultSiteContent: SiteContent = {
       "Professional etiquette and soft skills training",
       "Interview Readiness",
     ],
-    experienceImageUrl: "https://picsum.photos/seed/students/800/800",
+    experienceImageUrl: "/images/students-workshop.png.png",
     experienceBadgeText: "100% Immersion",
     finalRegisterLink: "https://docs.google.com/forms/d/e/1FAIpQLSdddFRbl4A_gALPwJRA82ZklQpV1cvrg6FyCYak6Vm27QQoIw/viewform",
     finalRegisterText: "Register Now",
