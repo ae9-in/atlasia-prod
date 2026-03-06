@@ -19,8 +19,8 @@ const aboutCodeImageUrls: string[] = [
   "",
   "https://res.cloudinary.com/dt7hm4udv/image/upload/ChatGPT_Image_Mar_5_2026_10_38_18_PM_htofli.png",
   "https://res.cloudinary.com/dt7hm4udv/image/upload/ChatGPT_Image_Mar_5_2026_10_46_31_PM_wigrkf.png",
-  "https://res.cloudinary.com/dt7hm4udv/image/upload/ChatGPT_Image_Mar_5_2026_10_56_36_PM_ncysc1.png",
-  "",
+  "https://res.cloudinary.com/dt7hm4udv/image/upload/WhatsApp_Image_2026-03-06_at_9.24.49_AM_wu3cfs.jpg",
+  "https://res.cloudinary.com/dt7hm4udv/image/upload/WhatsApp_Image_2026-03-06_at_9.24.49_AM_wu3cfs.jpg",
 ];
 
 export default function About() {
