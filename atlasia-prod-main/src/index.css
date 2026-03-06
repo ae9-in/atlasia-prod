@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #FAF3E0;
+  --color-mocha: #4B2E2B;
+  --color-gold: #C6A75E;
+  --color-taupe: #8D6E63;
+
+  --font-display: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Poppins", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-ivory text-mocha font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+.premium-card {
+  @apply bg-white rounded-3xl shadow-sm border border-black/5 p-8 transition-all duration-300 hover:shadow-md hover:-translate-y-1;
+}
+
+.gold-divider {
+  @apply h-px w-full bg-gold/30 my-8;
+}
+
+.btn-primary {
+  @apply bg-mocha text-ivory px-8 py-3 rounded-full font-medium transition-all duration-300 hover:bg-taupe hover:shadow-lg active:scale-95;
+}
+
+.btn-secondary {
+  @apply border border-mocha text-mocha px-8 py-3 rounded-full font-medium transition-all duration-300 hover:bg-mocha hover:text-ivory active:scale-95;
+}
+
+.glass-nav {
+  @apply sticky top-0 z-50 bg-ivory/80 backdrop-blur-md border-b border-gold/10;
+}
+
