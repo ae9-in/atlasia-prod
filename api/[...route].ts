@@ -68,15 +68,17 @@ const fallbackAbout = {
 };
 
 const fallbackPhases = [
-  { _id: "ph1", title: "Phase 1: Foundations", duration: "Day 1-3", description: "Introduction to industry standards and core concepts.", order: 1 },
-  { _id: "ph2", title: "Phase 2: Deep Dive", duration: "Day 4-8", description: "Intensive workshops and real-world case studies.", order: 2 },
-  { _id: "ph3", title: "Phase 3: Execution", duration: "Day 9-12", description: "Final project delivery and corporate presentation.", order: 3 },
+  { _id: "ph1", title: "Phase 1: Foundations", duration: "Day 1-2", description: "Introduction to industry standards and core concepts.", order: 1 },
+  { _id: "ph2", title: "Phase 2: Deep Dive", duration: "Day 2-3", description: "Intensive workshops and real-world case studies.", order: 2 },
+  { _id: "ph3", title: "Phase 3: Execution", duration: "Day 3-12", description: "Final project delivery and corporate presentation.", order: 3 },
 ];
 
 const fallbackRoles = [
-  { _id: "r1", roleName: "Business Analyst", description: "Analyze business needs and document requirements.", responsibilities: ["Requirement Gathering", "Process Mapping", "Stakeholder Management"], registerLink: "https://docs.google.com/forms/d/e/1FAIpQLSdddFRbl4A_gALPwJRA82ZklQpV1cvrg6FyCYak6Vm27QQoIw/viewform", order: 1 },
-  { _id: "r2", roleName: "Product Manager", description: "Drive product vision and strategy.", responsibilities: ["Roadmap Planning", "User Research", "Agile Leadership"], registerLink: "https://docs.google.com/forms/d/e/1FAIpQLSdddFRbl4A_gALPwJRA82ZklQpV1cvrg6FyCYak6Vm27QQoIw/viewform", order: 2 },
-  { _id: "r3", roleName: "Operations Lead", description: "Optimize internal processes and efficiency.", responsibilities: ["Workflow Optimization", "Resource Allocation", "Performance Tracking"], registerLink: "https://docs.google.com/forms/d/e/1FAIpQLSdddFRbl4A_gALPwJRA82ZklQpV1cvrg6FyCYak6Vm27QQoIw/viewform", order: 3 },
+  { _id: "r1", roleName: "Business Analyst", description: "Analyze business needs and document requirements.", responsibilities: ["Requirement Gathering", "Process Mapping", "Stakeholder Management"], registerLink: "https://docs.google.com/forms/d/e/1FAIpQLSdSpFlEDLjvojJoACj1gMSSBU6Zspk5yYafi79CGh-IBQ4uVg/viewform", order: 1 },
+  { _id: "r2", roleName: "HR", description: "Drive product vision and strategy.", responsibilities: ["Roadmap Planning", "User Research", "Agile Leadership"], registerLink: "https://docs.google.com/forms/d/e/1FAIpQLSdSpFlEDLjvojJoACj1gMSSBU6Zspk5yYafi79CGh-IBQ4uVg/viewform", order: 2 },
+  { _id: "r3", roleName: "Operations", description: "Optimize internal processes and efficiency.", responsibilities: ["Workflow Optimization", "Resource Allocation", "Performance Tracking"], registerLink: "https://docs.google.com/forms/d/e/1FAIpQLSdSpFlEDLjvojJoACj1gMSSBU6Zspk5yYafi79CGh-IBQ4uVg/viewform", order: 3 },
+  { _id: "r4", roleName: "BDE", description: "Optimize internal processes and efficiency.", responsibilities: ["Lead Generation & Market Research", "Client Relationship Management", "Revenue Growth Strategy"], registerLink: "https://docs.google.com/forms/d/e/1FAIpQLSdSpFlEDLjvojJoACj1gMSSBU6Zspk5yYafi79CGh-IBQ4uVg/viewform", order: 4 },
+  { _id: "r5", roleName: "Web Development", description: "Develop Real Time Scalable Web Applications", responsibilities: ["Lead Generation & Market Research", "Client Relationship Management", "Revenue Growth Strategy"], registerLink: "https://docs.google.com/forms/d/e/1FAIpQLSdSpFlEDLjvojJoACj1gMSSBU6Zspk5yYafi79CGh-IBQ4uVg/viewform", order: 5 },
 ];
 
 const fallbackHighlights = [
