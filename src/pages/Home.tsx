@@ -10,7 +10,7 @@ import { SiteContent, defaultSiteContent, normalizeSiteContent } from '../siteCo
 const fallbackHero: HeroData = {
   title: 'ATLASIA',
   subtitle: 'THE BOOTCAMP COMPANY',
-  tagline: '12-Day Industry Bootcamp: from classroom to corporate execution.',
+  tagline: '12-Day Industry Bootcamp:From Classroom to Corporate Execution.',
   primaryButtonText: 'Explore Bootcamp',
   primaryButtonLink: '/bootcamp',
   secondaryButtonText: 'Join as Student',
