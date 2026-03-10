@@ -22,9 +22,9 @@ const fallbackRoles: RoleData[] = [
       'Revenue Growth Strategy'], registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdSpFlEDLjvojJoACj1gMSSBU6Zspk5yYafi79CGh-IBQ4uVg/viewform', order: 4
   },
   {
-    _id: 'r5', roleName: 'Web Development', description: 'Develop Real Time Scalable Web Applications', responsibilities: ['Lead Generation & Market Research',
-      'Client Relationship Management',
-      'Revenue Growth Strategy'], registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdSpFlEDLjvojJoACj1gMSSBU6Zspk5yYafi79CGh-IBQ4uVg/viewform', order: 5
+    _id: 'r5', roleName: 'Web Development', description: 'Develop Real Time Scalable Web Applications', responsibilities: ['Front-End Development & UI Implementation',
+      'Website Performance Optimization',
+      'Debugging, Testing & Feature Development'], registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdSpFlEDLjvojJoACj1gMSSBU6Zspk5yYafi79CGh-IBQ4uVg/viewform', order: 5
   },
 ];
 
