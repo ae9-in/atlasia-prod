@@ -150,7 +150,7 @@ export default function Home() {
     if (slides.length <= 1) return;
     const timer = setInterval(() => {
       setActiveJoinSlide((prev) => (prev + 1) % slides.length);
-    }, 4500);
+    }, 30000);
     return () => clearInterval(timer);
   }, [siteContent.home.joinCarouselSlides]);
 
