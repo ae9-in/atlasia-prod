@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Bootcamp from './pages/Bootcamp';
 import Students from './pages/Students';
+import College from './pages/College';
 import Admin from './pages/Admin';
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/bootcamp" element={<Bootcamp />} />
             <Route path="/students" element={<Students />} />
+            <Route path="/college" element={<College />} />
             <Route path="/admin" element={<Admin />} />
           </Routes>
         </main>

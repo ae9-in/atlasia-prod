@@ -2,7 +2,9 @@ export interface SiteContent {
   common: {
     brandName: string;
     navRegisterText: string;
+    navRegisterLink: string;
     navRegisterNowText: string;
+    navRegisterNowLink: string;
     footerDescription: string;
     footerEmail: string;
     footerPhone: string;
@@ -66,13 +68,29 @@ export interface SiteContent {
     finalRegisterLink: string;
     finalRegisterText: string;
   };
+  collegePage: {
+    heroTitle: string;
+    heroSubtitle: string;
+    heroRegisterText: string;
+    heroRegisterLink: string;
+    whyPartnerTitle: string;
+    whyPartnerSubtitle: string;
+    benefits: Array<{ title: string; description: string }>;
+    processTitle: string;
+    processSteps: string[];
+    finalHeading: string;
+    finalRegisterText: string;
+    finalRegisterLink: string;
+  };
 }
 
 export const defaultSiteContent: SiteContent = {
   common: {
     brandName: "ATLASIA",
     navRegisterText: "Register",
+    navRegisterLink: "/college",
     navRegisterNowText: "Register Now",
+    navRegisterNowLink: "/college",
     footerDescription: "The Bootcamp Company. Bridging the gap between classroom learning and corporate execution through intensive industry immersion.",
     footerEmail: "careers@atlasia.online",
     footerPhone: "8431119696",
@@ -175,6 +193,29 @@ export const defaultSiteContent: SiteContent = {
     finalRegisterLink: "https://docs.google.com/forms/d/e/1FAIpQLSdddFRbl4A_gALPwJRA82ZklQpV1cvrg6FyCYak6Vm27QQoIw/viewform",
     finalRegisterText: "Register Now",
   },
+  collegePage: {
+    heroTitle: "College Partnership Registration",
+    heroSubtitle: "Enable your students to access ATLASIA's intensive industry immersion through a structured campus collaboration.",
+    heroRegisterText: "Register Your College",
+    heroRegisterLink: "https://docs.google.com/forms/d/e/1FAIpQLSdddFRbl4A_gALPwJRA82ZklQpV1cvrg6FyCYak6Vm27QQoIw/viewform",
+    whyPartnerTitle: "Why Partner With ATLASIA",
+    whyPartnerSubtitle: "A practical bridge between academic curriculum and corporate execution readiness.",
+    benefits: [
+      { title: "Placement-Ready Students", description: "Students train on real execution workflows expected by modern employers." },
+      { title: "Industry Mentor Network", description: "Your campus gets access to experts leading live sessions and reviews." },
+      { title: "Structured Execution Framework", description: "A repeatable collaboration model for multiple student cohorts." },
+    ],
+    processTitle: "How College Registration Works",
+    processSteps: [
+      "Submit your college registration details through the form.",
+      "Our team connects with your placement/training coordinator.",
+      "We align schedules, cohort size, and role tracks.",
+      "Launch your campus immersion batch with ATLASIA mentors.",
+    ],
+    finalHeading: "Bring ATLASIA Immersion to Your Campus",
+    finalRegisterText: "Start College Registration",
+    finalRegisterLink: "https://docs.google.com/forms/d/e/1FAIpQLSdddFRbl4A_gALPwJRA82ZklQpV1cvrg6FyCYak6Vm27QQoIw/viewform",
+  },
 };
 
 export function normalizeSiteContent(raw: unknown): SiteContent {
@@ -204,6 +245,12 @@ export function normalizeSiteContent(raw: unknown): SiteContent {
       ...(src.studentsPage || {}),
       benefits: Array.isArray(src.studentsPage?.benefits) ? src.studentsPage.benefits : defaultSiteContent.studentsPage.benefits,
       experienceItems: Array.isArray(src.studentsPage?.experienceItems) ? src.studentsPage.experienceItems : defaultSiteContent.studentsPage.experienceItems,
+    },
+    collegePage: {
+      ...defaultSiteContent.collegePage,
+      ...(src.collegePage || {}),
+      benefits: Array.isArray(src.collegePage?.benefits) ? src.collegePage.benefits : defaultSiteContent.collegePage.benefits,
+      processSteps: Array.isArray(src.collegePage?.processSteps) ? src.collegePage.processSteps : defaultSiteContent.collegePage.processSteps,
     },
   };
 }

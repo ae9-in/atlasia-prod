@@ -21,6 +21,7 @@ export const Navbar = () => {
     { name: 'About', path: '/about' },
     { name: 'Bootcamp', path: '/bootcamp' },
     { name: 'Students', path: '/students' },
+    { name: 'College', path: '/college' },
   ];
 
   return (
@@ -43,7 +44,7 @@ export const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <Link to="/students" className="btn-primary text-sm py-2 px-6">
+            <Link to={siteContent.common.navRegisterLink || '/college'} className="btn-primary text-sm py-2 px-6">
               {siteContent.common.navRegisterText}
             </Link>
           </div>
@@ -82,7 +83,7 @@ export const Navbar = () => {
               ))}
               <div className="pt-4">
                 <Link
-                  to="/students"
+                  to={siteContent.common.navRegisterNowLink || '/college'}
                   onClick={() => setIsOpen(false)}
                   className="btn-primary block text-center"
                 >
@@ -124,6 +125,7 @@ export const Footer = () => {
               <li><Link to="/about" className="text-ivory/70 hover:text-ivory transition-colors">About Us</Link></li>
               <li><Link to="/bootcamp" className="text-ivory/70 hover:text-ivory transition-colors">Bootcamp</Link></li>
               <li><Link to="/students" className="text-ivory/70 hover:text-ivory transition-colors">Students</Link></li>
+              <li><Link to="/college" className="text-ivory/70 hover:text-ivory transition-colors">College</Link></li>
             </ul>
           </div>
 
